@@ -96,7 +96,6 @@ class Calculator(QWidget):
         self.op = op
         self.input.setText("")
 
-
     def _result(self):
         self.num_2 = float(self.input.text())
         if self.op == "+":
@@ -106,7 +105,10 @@ class Calculator(QWidget):
         elif self.op == "*":
             self.input.setText(str(self.num_1 * self.num_2))
         elif self.op == "/":
-            self.input.setText(str(self.num_1 / self.num_2))
+            if self.num_2 == 0:
+                self.input.setText('')
+            else:
+                self.input.setText(str(self.num_1 / self.num_2))
 
 
 
